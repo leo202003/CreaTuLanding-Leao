@@ -7,10 +7,10 @@ TechStore es una aplicación web tipo e-commerce desarrollada con React, Sass, H
 - ⚛️ React
 - 🎨 Sass (SCSS)
 - 🧱 HTML5
-- 🎭 CSS3
-- 💡 JavaScript (ES6+)
-- 📦 Vite (o Create React App, según el caso)
+- 🎭 CSS
+- 💡 JavaScript 
+- 📦 Vite 
 
-## 📁 Estructura del proyecto
+
 
 
