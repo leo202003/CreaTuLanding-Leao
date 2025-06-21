@@ -8,7 +8,7 @@ export function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
-            <a href="#" className="navbar-brand">The Loot Shop</a>
+            <a href="#" className="navbar-brand">TechStore</a>
 
             <button
                 className="navbar-toggler"
