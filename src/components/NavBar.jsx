@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {CartWidget} from "./CartWidget"
 import "../scss/navbar.scss"
+import { Link, NavLink } from "react-router-dom";
 
 export function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -8,7 +9,8 @@ export function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
-            <a href="#" className="navbar-brand">TechStore</a>
+            
+            <h1><Link to = "/" className="navbar-brand">TechStore</Link></h1>
 
             <button
                 className="navbar-toggler"
@@ -28,22 +30,23 @@ export function NavBar() {
                 
                 <ul className="navbar-nav ms-auto justify-content-end mb-2 mb-lg-0">
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Tecnologia e Informatica</a>
+                        <NavLink className="nav-link" to="/">Home</NavLink>
                     </li>
+                    
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Consolas y Juegos</a>
+                        <NavLink className="nav-link" to="/category/smartphones">Smartphones</NavLink>
                     </li>
+
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Audio y Video</a>
+                        <NavLink className="nav-link" to="/category/laptops">Laptops</NavLink>
                     </li>
+
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Ilumniacion</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link d-flex align-items-center" href="#">
+                        <NavLink className="nav-link d-flex align-items-center"> 
                             <CartWidget />
-                        </a>
+                        </NavLink>
                     </li>
+
                 </ul>
             </div>
             
