@@ -1,21 +1,42 @@
 .navbar {
-
-    .navbar-brand {
-        font-size: 0.7em;
-        font-weight: bold;
-        padding: 10px;
-    }
-
-    form {
-        margin-left: 3em;
-        margin-top: 8px;
-    }
+    background-color: #004E7C;
 
     .navbar-nav {
-        gap: 2.5em;
-        margin-top: 8px;
+        padding: 0.7rem 0;
+    
+        .nav-link {
+            font-size: 1.1rem;
+            color: white;
+            transition: color 0.2s ease;
+
+            &:hover,
+            &.active {
+                color: #FFD700; 
+            }
+        }
     }
 
+    .navbar-toggler {
+        border: none;
+        background-color: transparent;
+        transition: transform 0.15s ease;
+        
+        &:focus {
+            outline: none;
+            box-shadow: none;
+            transform: scale(0.9);
+        }
+
+        &:active {
+            transform: scale(0.9);
+        }
+
+        .navbar-toggler-icon {
+            filter: brightness(0) invert(1);
+            transition: filter 0.3s ease;
+        }
+    }
 }
+
 
 

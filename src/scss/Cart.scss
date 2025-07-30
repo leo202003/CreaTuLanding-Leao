@@ -1,0 +1,138 @@
+.cart-page {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+    h1 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+        font-size: 2rem;
+        color: #333;
+    }
+}
+
+.cart-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-item {
+    display: flex;
+    gap: 1rem;
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 0;
+    align-items: center;
+
+    :last-child {
+        border-bottom: none;
+    }
+}
+
+.cart-item-img {
+    width: 120px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+.cart-item-info {
+    flex-grow: 1;
+
+    h3 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.2rem;
+        color: #222;
+    }
+
+    p {
+        margin: 0.2rem 0;
+        color: #555;
+    }
+}
+
+.cart-footer {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 1rem;
+
+    p {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: #111;
+        margin: 0;
+        z-index: 1;
+    }
+
+    button {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0.6rem 1.5rem;
+        font-size: 1rem;
+        z-index: 2;
+        font-size: 1rem;
+        padding: 0.6rem 1.4rem;
+        background-color: #004E7C;
+        transition: background-color 0.2s ease;
+
+            &.btn-outline-primary {
+                border-color: #004E7C;
+                color: #004E7C;
+
+                &:hover {
+                    background-color: #004E7C;
+                }
+            }
+    }
+}
+
+.carrito-vacio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.cart-item-action {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 1rem;
+
+    input {
+        width: 60px; 
+        height: 38px; 
+        padding: 0 0.5rem;
+        font-size: 1rem;
+    }
+
+    button {
+        height: 38px; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 0.75rem;
+        margin-bottom: 16px;
+        padding: 0.2rem 1rem;
+        background-color: #004E7C;
+        transition: background-color 0.2s ease;
+
+            &.btn-outline-primary {
+                border-color: #004E7C;
+                color: #004E7C;
+
+                &:hover {
+                    background-color: #004E7C;
+                }
+            }
+    }
+}
+

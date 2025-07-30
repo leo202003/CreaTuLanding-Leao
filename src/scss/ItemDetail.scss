@@ -1,0 +1,114 @@
+.detail {
+    display: flex;
+    max-width: auto;
+    flex-direction: row;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+    .img-detail {
+        max-width: 600px;
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+    }
+
+    .info-detail {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        padding: 1rem;
+
+        .heart-container {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            cursor: pointer;
+
+            :hover {
+                color: red;   
+            }
+        }   
+
+        h2 {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            color: #004E7C;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: #333;
+        }
+    }
+
+    .compra-detail {
+        flex: 1 1 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        input {
+            max-width: 80px;
+            padding: 0.3rem;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        button {
+            margin-bottom: 1.5rem;
+            padding: 0.75rem;
+            font-size: 1.1rem;
+            background-color: #004E7C;
+            transition: background-color 0.2s ease;
+
+            &.btn-outline-primary {
+                border-color: #004E7C;
+                color: #004E7C;
+
+                &:hover {
+                    background-color: #004E7C;
+                }
+            }
+        }
+
+        p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .proteccion {
+            font-style: italic;
+            color: #007bff;
+        }
+    }
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+    .detail {
+        flex-direction: column;
+
+        .img-detail,
+        .info-detail,
+        .compra-detail {
+            max-width: 100%;
+            flex: unset;
+        }
+
+        .info-detail {
+            h2 {
+                font-size: 1.6rem;
+            }
+        }
+    }
+}

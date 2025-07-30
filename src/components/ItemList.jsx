@@ -2,7 +2,7 @@ import {Item} from "./Item";
 
 export function ItemList({ items }) {
     return (
-        <div className="row">
+        <div className="row d-flex flex-wrap justify-content-center ">
             {items.map(item => (
                 <div className="col-md-3 mb-3" key={item.id}>
                     <Item {...item} />
