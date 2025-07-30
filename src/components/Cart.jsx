@@ -46,7 +46,7 @@ export function CartWidget() {
                     onChange={(e) => handleChange(e, item.id)}
                     className="form-control w-25 mb-3"
                 />
-              <button className="cart-item-remove btn btn-primary" onClick={() => handleClick(item.id)}><Trash /></button>
+                <button className="cart-item-remove btn btn-primary" onClick={() => handleClick(item.id)}><Trash /></button>
             </div>
           </li>
         ))}

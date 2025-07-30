@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "../scss/Header.scss";
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Heart } from 'lucide-react';
 import { NavLink } from "react-router-dom";
 import { Bot, Search } from 'lucide-react';
 import { Favorites } from './Favorites';
@@ -32,6 +32,7 @@ export function Header() {
         return () => clearInterval(intervalo);
     }, []);
 
+
     return (
         <header className="container-fluid col"> 
         
@@ -57,7 +58,9 @@ export function Header() {
 
                     <div className="right-group">
                         <Login className="right-item"/>
-                        <Favorites className="right-item"/>
+                        <NavLink to="/favorites" className="right-item">
+                            <Heart size={28} color="#3F4548"/>
+                        </NavLink>
                         <NavLink className="right-item cart-link" to="/cart">
                             <ShoppingCart size={28} color="#3F4548" />
                             {cantProductsCart > 0 && <span className="cart-count">{cantProductsCart}</span>}

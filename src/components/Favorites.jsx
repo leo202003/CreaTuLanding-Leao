@@ -1,10 +1,40 @@
-import { Heart } from 'lucide-react';
+import { Heart, Trash } from 'lucide-react';
 import "../scss/Header.scss";
+import { useFav } from '../context/FavContext';
+import "../scss/Favorites.scss"
 
-export function Favorites({className}) {
+export function Favorites() {
+  const { favItems, removeFavorite } = useFav();
+
+  if (favItems.length === 0) {
+    return (
+      <div className='favorites-empty'>
+        <p>Aún no has agregado artículos a tu lista de favoritos.</p>
+      </div>
+    );
+  }
+
   return (
-    <div className={className} >
-        <Heart size={28} color='#3F4548'/>
-    </div>
-  )
+    <section className={`favorites-page`}>
+      <h1>Mis Favoritos</h1>
+      <ul className="favorites-list">
+        {favItems.map(item => (
+          <li key={item.id} className="favorites-item ">
+            <img src={item.image} alt={item.title} className="favorites-item-img " />
+            <div className="favorites-item-info">
+              <h3>{item.title}</h3>
+              <p>Precio: US${item.price}</p>
+              <button
+                className="remove-fav-btn btn btn-primary"
+                onClick={() => removeFavorite(item.id)}
+              >
+                <Trash size={20} />
+              </button>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
 }
+

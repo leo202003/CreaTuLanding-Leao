@@ -1,0 +1,90 @@
+.favorites-page {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+    h1 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+        font-size: 2rem;
+        color: #333;
+    }
+}
+
+.favorites-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.favorites-item {
+    display: flex;
+    gap: 1rem;
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 0;
+    align-items: center;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.favorites-item-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.favorites-item-info {
+    flex-grow: 1;
+    position: relative;
+
+    h3 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.2rem;
+        color: #222;
+    }
+
+    p {
+        margin: 0.2rem 0;
+        color: #555;
+    }
+
+    .remove-fav-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #004E7C;
+        border: none;
+        padding: 0.3rem 0.5rem;
+        border-radius: 6px;
+        cursor: pointer;
+        color: white;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: #003655;
+        }
+    }
+}
+
+.favorites-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 800px;
+    margin: 4rem auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    padding: 2rem;
+    text-align: center;
+}

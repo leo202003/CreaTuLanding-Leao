@@ -6,7 +6,8 @@ import { NotFound } from "./components/NotFound"
 import { Header } from "./components/Header"
 import { CargarProductos } from './components/cargarProductos'
 import { Home } from './components/Home'
-import { CartWidget } from "./components/CartWidget"
+import { CartWidget } from "./components/Cart"
+import { Favorites } from "./components/Favorites"
 
 export function App() {
   return (
@@ -15,6 +16,7 @@ export function App() {
       <Header />
       <NavBar />
       <Routes>
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<CartWidget />} />
         <Route path="/category/:id" element={<ItemListContainer />} />
