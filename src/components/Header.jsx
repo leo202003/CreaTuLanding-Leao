@@ -3,7 +3,6 @@ import "../scss/Header.scss";
 import { ShoppingCart, Heart } from 'lucide-react';
 import { NavLink } from "react-router-dom";
 import { Bot, Search } from 'lucide-react';
-import { Favorites } from './Favorites';
 import { Login } from './Login';
 import { useCart } from "../context/CartContext";
 

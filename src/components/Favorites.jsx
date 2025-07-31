@@ -2,6 +2,7 @@ import { Heart, Trash } from 'lucide-react';
 import "../scss/Header.scss";
 import { useFav } from '../context/FavContext';
 import "../scss/Favorites.scss"
+import { Link } from "react-router-dom";
 
 export function Favorites() {
   const { favItems, removeFavorite } = useFav();
@@ -22,14 +23,26 @@ export function Favorites() {
           <li key={item.id} className="favorites-item ">
             <img src={item.image} alt={item.title} className="favorites-item-img " />
             <div className="favorites-item-info">
-              <h3>{item.title}</h3>
-              <p>Precio: US${item.price}</p>
-              <button
+              <div className="left-group">
+                <h3>{item.title}</h3>
+                <p>Precio: US${item.price}</p>
+              </div>
+              <div className="right-group">
+                <Link to={`/item/${item.id}`}>
+                  <button 
+                    className="ver-fav-btn btn btn-primary"
+                  >
+                    Ver
+                  </button>
+                </Link>
+                
+                <button
                 className="remove-fav-btn btn btn-primary"
                 onClick={() => removeFavorite(item.id)}
-              >
-                <Trash size={20} />
-              </button>
+                >
+                  <Trash size={20} />
+                </button>
+              </div> 
             </div>
           </li>
         ))}

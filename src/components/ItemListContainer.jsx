@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { ItemList } from "./ItemList";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from '../firebaseConfig';
+import '../scss/ItemListContainer.scss'
 
 export function ItemListContainer() {
 
@@ -33,7 +34,7 @@ export function ItemListContainer() {
 
   return (
     <section className="container mt-4">
-      <h2>{`Categoría: ${id}`}</h2>
+      <h2 className="titulos-categoria">{`Categoría: ${id}`}</h2>
       {loading ? (<p>Cargando productos...</p>) : items.length > 0 ? (<ItemList items={items} />) 
         : (<p className="text-danger">Categoría no encontrada</p>)}
     </section>
