@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import "../scss/Header.scss";
 import { ShoppingCart, Heart } from 'lucide-react';
 import { NavLink } from "react-router-dom";
-import { Bot, Search } from 'lucide-react';
+import { Bot } from 'lucide-react';
 import { Login } from './Login';
 import { useCart } from "../context/CartContext";
+import { Buscador } from './Buscador.jsx'
 
 export function Header() {
 
@@ -42,7 +43,7 @@ export function Header() {
             <section className="row header_horarios">
                 <p>Pocitos L a D de 10 a 22 hs | Punta Carretas L a D de 10 a 22 hs | Centro L a D de 9 a 22 hs</p>
             </section>
-
+            
             <section className="row header_buscador navbar">
                 <div className="container">
                         <div className="logo">
@@ -50,10 +51,7 @@ export function Header() {
                             <NavLink className="navbar-brand" to="/">TechStore</NavLink>
                         </div>
 
-                        <form className="search-form" role="search">
-                            <input className="search-input" type="search" placeholder="Buscar productos..." aria-label="Search" />
-                            <button className="search-button" type="submit"><Search /></button>
-                        </form>
+                        <Buscador />
 
                     <div className="right-group">
                         <Login className="right-item"/>
