@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Search } from "lucide-react";
 
 
-export function Buscador() {
+export function SearchBar() {
     const [searchTerm, setSearchTerm] = useState("");
     const navigate = useNavigate();
 
@@ -18,7 +18,7 @@ export function Buscador() {
         <form className="search-form" onSubmit={handleSubmit}>
             <input
                 type="search"
-                placeholder="Buscar ..."
+                placeholder="Buscar..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="search-input"

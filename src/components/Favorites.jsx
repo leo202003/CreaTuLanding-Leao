@@ -16,12 +16,12 @@ export function Favorites() {
   }
 
   return (
-    <section className={`favorites-page`}>
+    <section className="favorites-page">
       <h1>Mis Favoritos</h1>
       <ul className="favorites-list">
         {favItems.map(item => (
           <li key={item.id} className="favorites-item ">
-            <img src={item.image} alt={item.title} className="favorites-item-img " />
+            <img src={item.image} alt={item.title} className="favorites-item-img" />
             <div className="favorites-item-info">
               <div className="left-group">
                 <h3>{item.title}</h3>

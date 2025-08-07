@@ -1,7 +1,6 @@
 import { useState } from "react";
-import {CartWidget} from "./Cart"
 import "../scss/navbar.scss"
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export function NavBar() {
     const [isOpen, setIsOpen] = useState(false);

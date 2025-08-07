@@ -13,70 +13,70 @@
         font-size: 2rem;
         color: #333;
     }
-}
 
-.favorites-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+    .favorites-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
 
-.favorites-item {
-    display: flex;
-    gap: 1rem;
-    border-bottom: 1px solid #ddd;
-    padding: 1rem 0;
-    align-items: center;
+        .favorites-item {
+            display: flex;
+            gap: 1rem;
+            border-bottom: 1px solid #ddd;
+            padding: 1rem 0;
+            align-items: center;
 
-    &:last-child {
-        border-bottom: none;
-    }
-}
+            &:last-child {
+                border-bottom: none;
+            }
 
-.favorites-item-img {
-    width: 120px;
-    height: 120px;
-    border-radius: 8px;
-    object-fit: cover;
-}
+            .favorites-item-img {
+                width: 120px;
+                height: 120px;
+                border-radius: 8px;
+                object-fit: cover;
+            }
 
-.favorites-item-info {
-    display: flex; 
-    flex-direction: row; 
-    justify-content: space-between; 
-    align-items: center; 
-    width: 100%;
-    
+            .favorites-item-info {
+                display: flex; 
+                flex-direction: row; 
+                justify-content: space-between; 
+                align-items: center; 
+                width: 100%;
+                
 
-    h3 {
-        margin: 0 0 0.5rem 0;
-        font-size: 1.2rem;
-        color: #222;
-    }
+                h3 {
+                    margin: 0 0 0.5rem 0;
+                    font-size: 1.2rem;
+                    color: #222;
+                }
 
-    p {
-        margin: 0.2rem 0;
-        color: #555;
-    }
+                p {
+                    margin: 0.2rem 0;
+                    color: #555;
+                }
 
-    .right-group {
-        display: flex;
-        gap: 0.5rem;
-        .btn {
-            background-color: #004E7C;
-            border: none;
-            padding: 0.4rem 0.7rem;
-            border-radius: 6px;
-            cursor: pointer;
-            color: white;
-            transition: background-color 0.2s ease;
+                .right-group {
+                    display: flex;
+                    gap: 0.5rem;
+                    .btn {
+                        background-color: #004E7C;
+                        border: none;
+                        padding: 0.4rem 0.7rem;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        color: white;
+                        transition: background-color 0.2s ease;
 
-            &:hover {
-                background-color: #003655;
+                        &:hover {
+                            background-color: #003655;
+                        }
+                    }
+                }  
+
             }
         }
-    }  
-
+    }
 }
 
 .favorites-empty {

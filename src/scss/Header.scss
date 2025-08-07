@@ -92,81 +92,78 @@ header {
                 align-items: center;
                 cursor: pointer;
             }
+
+            .cart-link {
+                position: relative;
+                display: inline-flex;
+                align-items: center;
+            }
+
+            .cart-count {
+                position: absolute;
+                bottom: -6px;
+                right: -6px;
+                background-color: rgb(255, 55, 55);
+                color: white;
+                font-size: 0.75rem;
+                font-weight: bold;
+                padding: 1px 4px;
+                border-radius: 50%;
+                min-width: 18px;
+                min-height: 18px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                aspect-ratio: 1;
+                box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+            }
         }
     }
 
     @media (max-width: 768px) {
-
         .header_buscador {
-
-            .logo {
-                
-                .navbar-brand {
-                    font-size: 3rem;
-                }
-            }
-            
-            .container-fluid {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 0.8rem;
-            }
-
-            .left-group {
-                justify-content: center;
-                width: 100%;
+            .container {
                 flex-direction: column;
                 align-items: center;
                 gap: 1rem;
             }
 
+            .logo {
+                justify-content: center;
+                width: 100%;
+                .navbar-brand {
+                    font-size: 2.5rem;
+                    text-align: center;
+                    margin: 0;
+                }
+            }
+
             .search-form {
                 width: 100%;
-                padding: 0 3rem;
+                max-width: 90%;
+                padding: 0;
+                flex-direction: row;
                 justify-content: center;
-                margin-right: 50px;
+
                 .search-input {
                     width: 100%;
-                    font-size: 0.95rem;
+                    font-size: 1rem;
                 }
 
                 .search-button {
-                    font-size: 0.95rem;
+                    font-size: 1rem;
                     padding: 0.5rem 1rem;
                 }
             }
 
-                .right-group {
-                    justify-content: center;
-                    gap: 1.3rem;
-                    margin-top: 0.5rem;
-                    margin-right: 25px;
-                }
+            .right-group {
+                width: 100%;
+                justify-content: center;
+                margin: 0;
+                gap: 1rem;
+            }
         }
     }
-    
-    .cart-link {
-        position: relative;
-        display: inline-block;
 
-        .cart-count {
-            position: absolute;
-            bottom: -6px;
-            right: -6px;
-            background-color: #e63946;
-            color: white;
-            font-size: 0.7rem;
-            font-weight: bold;
-            padding: 2px 6px;
-            border-radius: 50%;
-            min-width: 18px;
-            height: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
-            box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-        }
-    }
 
 }

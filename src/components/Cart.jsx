@@ -1,63 +1,93 @@
+import { useState, useEffect } from 'react';
 import { useCart } from '../context/CartContext';
-import "../scss/Cart.scss"
-import { Trash } from 'lucide-react'
-import { useState } from 'react'
+import "../scss/Cart.scss";
+import { CartItem } from './CartItem';
+import { db } from '../firebaseConfig'; 
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { Link } from 'react-router-dom'
 
-export function CartWidget() {
+export function Cart() {
   const { cartItems, removeFromCart, updateQuantity } = useCart();
-  const [cantidades, setCantidades] = useState({})
+  const [cantidades, setCantidades] = useState({});
 
-  if (cartItems.length === 0) {
+  useEffect(() => {
+    const inicial = {};
+    cartItems.forEach(item => {
+      inicial[item.id] = item.quantity;
+    });
+    setCantidades(inicial);
+  }, [cartItems]);
+
+  if (!cartItems || cartItems.length === 0) {
     return (
       <div className='carrito-vacio'>
         <p>Aún no has agregado artículos a tu compra.</p>
       </div>
-    )
+    );
   }
 
-  const handleClick = (id) => {
+  const handleRemove = (id) => {
     removeFromCart(id);
-  }
+    setCantidades(prev => {
+      const copy = { ...prev };
+      delete copy[id];
+      return copy;
+    });
+  };
 
-  const handleChange = (e, id)  => {
-    const value = parseInt(e.target.value);
-      if (!isNaN(value) && value > 0) {
-        setCantidades(prev => ({ ...prev, [id]: value }));
-        updateQuantity(id, value)
-      }
-  }
+  const handleQuantityChange = (id, value) => {
+    setCantidades(prev => ({ ...prev, [id]: value }));
+    updateQuantity(id, value);
+  };
+
+  const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
+  const handleCheckout = async (clienteData) => {
+  try {
+    const orden = {
+      cliente: clienteData,
+      items: cartItems.map(item => ({
+        id: item.id,
+        title: item.title,
+        price: item.price,
+        quantity: item.quantity,
+      })),
+      total,
+      fecha: Timestamp.fromDate(new Date()),
+      estado: 'generada'
+    };
+
+    const docRef = await addDoc(collection(db, "ordenes"), orden);
+    alert(`Compra realizada con éxito. ID de orden: ${docRef.id}`);
+
+  } catch(error) {
+    console.error("Error creando la orden: ", error);
+    alert("Hubo un error al procesar la compra.");
+  } finally {
+    
+  } 
+};
+
   return (
     <section className="cart-page">
       <h1>Tu Carrito</h1>
       <ul className="cart-list">
         {cartItems.map(item => (
-          <li key={item.id} className="cart-item">
-            <img src={item.image} alt={item.title} className="cart-item-img" />
-            <div className="cart-item-info">
-              <h3>{item.title}</h3>
-              <p>Precio unitario: US${item.price}</p>
-              <p>Subtotal: US${(item.price * item.quantity).toFixed(2)}</p>
-            </div>
-            <div className="cart-item-action">
-                <input
-                    type="number"
-                    min="1"
-                    value={cantidades[item.id] || item.quantity}
-                    onChange={(e) => handleChange(e, item.id)}
-                    className="form-control w-25 mb-3"
-                />
-                <button className="cart-item-remove btn btn-primary" onClick={() => handleClick(item.id)}><Trash /></button>
-            </div>
-          </li>
+          <CartItem
+            key={item.id}
+            item={item}
+            cantidadLocal={cantidades[item.id] ?? item.quantity}
+            onQuantityChange={(value) => handleQuantityChange(item.id, value)}
+            onRemove={() => handleRemove(item.id)}
+          />
         ))}
       </ul>
       <div className="cart-footer">
-        <button className="btn btn-primary">Pagar</button>
-        <p className='total'>
-          Total: US${cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}
-        </p>
+        <Link to="/checkout" >
+          <button className="btn btn-primary">Pagar</button>
+        </Link>
+        <p className="total">Total: US${total.toFixed(2)}</p>
       </div>
     </section>
   );
 }
-

@@ -1,20 +1,13 @@
 import { useEffect, useState } from "react";
 import "../scss/Header.scss";
-import { ShoppingCart, Heart } from 'lucide-react';
+import { Heart } from 'lucide-react';
 import { NavLink } from "react-router-dom";
 import { Bot } from 'lucide-react';
 import { Login } from './Login';
-import { useCart } from "../context/CartContext";
-import { Buscador } from './Buscador.jsx'
+import { SearchBar } from './SearchBar.jsx'
+import { CartWidget } from './CartWidget.jsx'
 
 export function Header() {
-
-    const [cantProductsCart, setcantProductsCart] = useState(0);
-    const {productsInCart} = useCart();
-    
-    useEffect(() => {
-        setcantProductsCart(productsInCart());
-    },[productsInCart])
 
     const mensajes = [
         "ENVIOS GRATIS EN COMPRAS MAYORES A $3500",
@@ -50,18 +43,13 @@ export function Header() {
                             <Bot size={40} color="#004E7C" />
                             <NavLink className="navbar-brand" to="/">TechStore</NavLink>
                         </div>
-
-                        <Buscador />
-
+                        <SearchBar />
                     <div className="right-group">
                         <Login className="right-item"/>
                         <NavLink to="/favorites" className="right-item">
                             <Heart size={28} color="#3F4548"/>
                         </NavLink>
-                        <NavLink className="right-item cart-link" to="/cart">
-                            <ShoppingCart size={28} color="#3F4548" />
-                            {cantProductsCart > 0 && <span className="cart-count">{cantProductsCart}</span>}
-                        </NavLink>
+                        <CartWidget />
                     </div>
 
                 </div>

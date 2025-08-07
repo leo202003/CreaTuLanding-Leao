@@ -1,8 +1,9 @@
 import "../scss/ItemDetail.scss"
 import { Heart } from 'lucide-react'
 import { useCart } from '../context/CartContext';
-import { useState } from 'react'
 import { useFav } from '../context/FavContext'
+import { ItemCount } from './ItemCount'
+import { useState } from 'react'
 
 export function ItemDetail({ id, title, price, description, image }) {
 
@@ -13,13 +14,6 @@ export function ItemDetail({ id, title, price, description, image }) {
     const handleClick = () => {
         const product = { id, title, price, image };
         addToCart(product, quantity); 
-    };
-
-    const handleChange = (e) => {
-        const value = parseInt(e.target.value);
-        if (!isNaN(value) && value > 0) {
-            setQuantity(value);
-        }
     };
 
     const isFav = favItems.some(fav => fav.id === id); 
@@ -43,16 +37,7 @@ export function ItemDetail({ id, title, price, description, image }) {
                 <p>{description}</p>
             </div>
             <div className="compra-detail">
-                <div className="cantidad-group">
-                    <label htmlFor="cantidad">Cantidad:</label>
-                    <input
-                        id="cantidad"
-                        type="number"
-                        min="1"
-                        value={quantity}
-                        onChange={handleChange}
-                    />
-                </div>
+                <ItemCount quantity={quantity} setQuantity={setQuantity}/>
                 <button className="btn btn-primary" onClick={handleClick} >Comprar</button>
                 <p className="proteccion">
                     Compra Protegida. Recibe el producto que esperabas o te devolvemos tu dinero.
