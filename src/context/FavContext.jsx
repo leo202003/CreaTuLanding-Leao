@@ -1,9 +1,20 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, useEffect } from 'react';
 
 const FavContext = createContext();
 
 export function FavProvider({children}) {
-    const [favItems, setFavItems] = useState([]);
+    const [favItems, setFavItems] = useState(() => {
+        try {
+            const stored = localStorage.getItem("favorites");
+            return stored ? JSON.parse(stored) : [];
+        } catch {
+           return []; 
+        }
+    });
+
+    useEffect(() => {
+        localStorage.setItem("favorites", JSON.stringify(favItems));
+    }, [favItems]);
 
     function addFavorite(item) {
         const favItemsCopy = [...favItems];

@@ -26,7 +26,7 @@ export function CheckoutForm({ onSubmit, onClose }) {
             direccion,
             ciudad,
             codigoPostal,
-            metodoPago
+            numeroTarjeta
         });
     };
 

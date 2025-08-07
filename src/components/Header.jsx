@@ -51,7 +51,6 @@ export function Header() {
                         </NavLink>
                         <CartWidget />
                     </div>
-
                 </div>
             </section>
         </header>

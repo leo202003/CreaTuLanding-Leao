@@ -1,9 +1,9 @@
-// components/CheckoutPage.jsx
 import { CheckoutForm } from "./CheckoutForm";
 import { useCart } from "../context/CartContext";
 import { db } from "../firebaseConfig";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 export function CheckoutPage() {
     const { cartItems, clearCart } = useCart(); 
@@ -26,13 +26,22 @@ export function CheckoutPage() {
         };
 
         const docRef = await addDoc(collection(db, "ordenes"), orden);
-        alert(`Compra realizada con éxito. ID de orden: ${docRef.id}`);
+        Swal.fire({
+            icon: 'success',
+            title: 'Compra realizada con éxito',
+            text: `ID de orden: ${docRef.id}`,
+            confirmButtonText: 'OK'
+        });
         clearCart();
         navigate("/"); 
 
         } catch (error) {
-            console.error("Error creando la orden: ", error);
-            alert("Hubo un error al procesar la compra.");
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Hubo un error al procesar la compra.',
+                confirmButtonText: 'Aceptar'
+            });
         }
     };
 

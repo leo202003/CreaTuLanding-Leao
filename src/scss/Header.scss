@@ -5,13 +5,14 @@ header {
         align-items: center;
         justify-content: center;
         padding: 0.5rem;
-            p {
-                text-align: center;
-                margin: 0;
-                font-size: 1rem;
-                font-weight: 500;
-                color: white;
-            }
+        
+        p {
+            text-align: center;
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 500;
+            color: white;
+        }
     }
 
     .header_horarios {
@@ -20,12 +21,13 @@ header {
         align-items: center;
         justify-content: flex-start;
         background-color: white;
-            p {
-                color: #555555;
-                margin: 0;
-                font-size: 0.9rem;
-                font-weight: 450;
-            }
+        
+        p {
+            color: #555555;
+            margin: 0;
+            font-size: 0.9rem;
+            font-weight: 450;
+        }
     }
 
     .header_buscador {
@@ -164,6 +166,4 @@ header {
             }
         }
     }
-
-
 }

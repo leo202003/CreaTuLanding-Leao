@@ -11,13 +11,10 @@ export function ItemDetailContainer() {
     const [cargo, setCargo] = useState(false);
 
     useEffect(() => {
-
         if (cargo) return;
-
         const docRef = doc(db, "productos", id);
-        
         getDoc(docRef) 
-             .then((docSnap) => {
+            .then((docSnap) => {
                 if (docSnap.exists()) {
                     setItem({ 
                         id: docSnap.id,
@@ -27,8 +24,8 @@ export function ItemDetailContainer() {
                     setItem(null); 
                 }
             })
-            .catch((err) => {
-                console.error("Error al obtener productos:", err);
+            .catch((error) => {
+                console.error("Error al obtener productos:", error);
                 setItem(null);
             })
             .finally(() => {

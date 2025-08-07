@@ -1,4 +1,4 @@
-import { Heart, Trash } from 'lucide-react';
+import { Trash } from 'lucide-react';
 import "../scss/Header.scss";
 import { useFav } from '../context/FavContext';
 import "../scss/Favorites.scss"

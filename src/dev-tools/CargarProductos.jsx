@@ -4,7 +4,6 @@ import { db } from "../firebaseConfig";
 
 const productos = [
 
-    //SMARTPHONES
     {
         title: "iPhone 14 Pro",
         price: 1250,
@@ -167,7 +166,6 @@ const productos = [
         destacado: false
     },
 
-    // CONSOLAS
     {
         title: "PlayStation 5",
         description: "Sony PlayStation 5 consola estándar con lector de discos",
@@ -297,7 +295,7 @@ const productos = [
         image: "/images/resident.webp",
         destacado: false
     },
-    //iluminacion
+    
     {
         title: "Tira LED RGB Govee 5m",
         description: "Tira de luces LED con control remoto y sincronización con música.",
@@ -370,8 +368,8 @@ export function CargarProductos() {
             cargadoRef.current = true;
         };
 
-    cargarProductosdb();
-  }, []);
+        cargarProductosdb();
+    }, []);
 
   return null;
 }

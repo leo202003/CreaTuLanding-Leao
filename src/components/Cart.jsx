@@ -2,12 +2,11 @@ import { useState, useEffect } from 'react';
 import { useCart } from '../context/CartContext';
 import "../scss/Cart.scss";
 import { CartItem } from './CartItem';
-import { db } from '../firebaseConfig'; 
-import { collection, addDoc, Timestamp } from "firebase/firestore";
+import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom'
 
 export function Cart() {
-  const { cartItems, removeFromCart, updateQuantity } = useCart();
+  const { cartItems, removeFromCart, updateQuantity, clearCart } = useCart();
   const [cantidades, setCantidades] = useState({});
 
   useEffect(() => {
@@ -42,31 +41,23 @@ export function Cart() {
 
   const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
-  const handleCheckout = async (clienteData) => {
-  try {
-    const orden = {
-      cliente: clienteData,
-      items: cartItems.map(item => ({
-        id: item.id,
-        title: item.title,
-        price: item.price,
-        quantity: item.quantity,
-      })),
-      total,
-      fecha: Timestamp.fromDate(new Date()),
-      estado: 'generada'
-    };
-
-    const docRef = await addDoc(collection(db, "ordenes"), orden);
-    alert(`Compra realizada con éxito. ID de orden: ${docRef.id}`);
-
-  } catch(error) {
-    console.error("Error creando la orden: ", error);
-    alert("Hubo un error al procesar la compra.");
-  } finally {
-    
-  } 
-};
+  const handleVaciarCarrito = () => {
+    Swal.fire({
+      title: "¿Estás seguro?",
+      text: "Se eliminarán todos los productos del carrito.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#004E7C",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí, vaciar",
+      cancelButtonText: "Cancelar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        clearCart();
+        Swal.fire("Carrito vaciado", "Tu carrito ha sido vaciado exitosamente.", "success");
+      }
+    });
+  };
 
   return (
     <section className="cart-page">
@@ -83,9 +74,10 @@ export function Cart() {
         ))}
       </ul>
       <div className="cart-footer">
-        <Link to="/checkout" >
-          <button className="btn btn-primary">Pagar</button>
-        </Link>
+        <div className="buttons">
+          <button className="btn btn-secondary" onClick={handleVaciarCarrito}>Vaciar carrito</button>
+          <Link className="btn btn-primary" to="/checkout">Pagar</Link>
+        </div>
         <p className="total">Total: US${total.toFixed(2)}</p>
       </div>
     </section>

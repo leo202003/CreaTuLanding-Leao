@@ -1,4 +1,3 @@
-// SearchResults.jsx
 import { useSearchParams } from "react-router-dom";
 import { useProducts } from "../context/ProductsContext";
 import { ItemList } from "./ItemList";

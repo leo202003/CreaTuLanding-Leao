@@ -33,14 +33,13 @@ export function Destacados() {
 
   
     return (
-
-    <section className="productos-destacados container mt-4">
+        <section className="productos-destacados container mt-4">
             <h2>🔥 Productos Destacados</h2>
             {prodsDestacados.length > 0 ? (
                 <ItemList items={prodsDestacados} />
             ) : (
                 <p>No hay productos destacados.</p>
             )}
-    </section>
-  )
+        </section>
+    )
 }
