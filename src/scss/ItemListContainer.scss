@@ -8,3 +8,24 @@
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+
+.categoria-section {
+  min-height: 60vh; 
+}
+
+.loader-container {
+  min-height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.mensaje-error {
+  color: #dc3545;
+  font-weight: bold;
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+}

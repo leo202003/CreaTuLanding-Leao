@@ -33,10 +33,17 @@ export function ItemListContainer() {
     }, [id]);
 
   return (
-    <section className="container mt-4">
+    <section className="container mt-4 categoria-section">
       <h2 className="titulos-categoria">{`Categoría: ${id}`}</h2>
-      {loading ? (<p>Cargando productos...</p>) : items.length > 0 ? (<ItemList items={items} />) 
-        : (<p className="text-danger">Categoría no encontrada</p>)}
+      {loading ? (
+        <div className="loader-container">
+          <span>Cargando productos...</span>
+        </div>
+      ) : items.length > 0 ? (
+        <ItemList items={items} />
+      ) : (
+        <p className="mensaje-error">Categoría no encontrada</p>
+      )}
     </section>
   )
 }
