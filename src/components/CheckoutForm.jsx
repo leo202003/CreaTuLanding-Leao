@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import "../scss/cart.scss"
+import "../scss/Cart.scss"
 
 export function CheckoutForm({ onSubmit, onClose }) {
     const [nombre, setNombre] = useState('');
