@@ -3,6 +3,8 @@ import "../scss/Header.scss";
 import { useFav } from '../context/FavContext';
 import "../scss/Favorites.scss"
 import { Link } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Favorites() {
   const { favItems, removeFavorite } = useFav();
@@ -13,6 +15,18 @@ export function Favorites() {
         <p>Aún no has agregado artículos a tu lista de favoritos.</p>
       </div>
     );
+  }
+
+  function handleRemove (producto) {
+    removeFavorite(producto.id);
+    toast.info(`Eliminaste "${producto?.title}" de favoritos 💔`, {
+      style: {
+        fontSize: "0.9rem",
+        padding: "0.7rem 1.2rem",
+        minHeight: "50px",
+        maxWidth: "480px"
+      }
+    });
   }
 
   return (
@@ -38,7 +52,7 @@ export function Favorites() {
                 
                 <button
                 className="remove-fav-btn btn btn-primary"
-                onClick={() => removeFavorite(item.id)}
+                onClick={() => handleRemove(item)}
                 >
                   <Trash size={20} />
                 </button>

@@ -108,7 +108,7 @@ export function CheckoutForm({ onSubmit, onClose }) {
                 </div>
 
             <button type="submit" className="btn btn-success">Confirmar compra</button>
-            <button type="button" className="modal-close-btn" onClick={onClose}>
+            <button type="button" className="close-btn" onClick={onClose}>
                 Cerrar
             </button>
         </form>

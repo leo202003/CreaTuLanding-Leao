@@ -18,10 +18,16 @@ export function SearchResults() {
         <div className="container mt-4">
             {loading ? (
                 <p>Cargando...</p>
-            ) : resultados.length > 0 ? (
-                <ItemList items={resultados} />
             ) : (
-                <p>No se encontraron productos.</p>
+                <>
+                    <h5>Resultados para: <em>{term}</em></h5>
+                    <p>{resultados.length} producto(s) encontrado(s)</p>
+                    {resultados.length > 0 ? (
+                        <ItemList items={resultados} />
+                    ) : (
+                        <p>No se encontraron productos para "{term}".</p>
+                    )}
+                </>
             )}
         </div>
     );
