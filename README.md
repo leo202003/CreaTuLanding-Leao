@@ -4,7 +4,7 @@
 Ofrece una experiencia de compra rápida, moderna y visualmente atractiva, donde los usuarios pueden explorar, filtrar y adquirir productos tecnológicos de manera sencilla.
 
 ## 🌐 Demo en línea
-🔗 [Visitar TechStore](https://tu-enlace-a-la-web.com)  
+🔗 [Visitar TechStore](https://techstore-one.vercel.app/)  
 
 ## 🚀 Tecnologías utilizadas
 - ⚛️ **React** – Librería principal para la construcción de la interfaz
